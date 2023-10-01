@@ -1,44 +1,108 @@
-# Starter Project HacktoberFest 2023 :computer:
+ # Enigma_Task_1
+#                                    Chopsticks Game
+## Rules of the Game (2 Player Version):
+This official set of rules is called rollover where five fingers are subtracted
+should a hand's sum exceed 5 as described below.
+>> 1. Each player begins with one finger raised on each hand.
+>> 2. On a player's turn, they must either attack or split, but not both.
+>> 3. To attack, a player uses one of their live hands(Hands that have
+     min of 1 Finger Raised) to strike an opponent's live hand. The
+     number of fingers on the opponent's struck hand will increase by the
+     number of fingers on the hand used to strike.
+>> 4. To split, a player strikes their own two hands together, and transfers
+     raised fingers from one hand to the other as desired.
+>> 5. If any hand of any player reaches exactly five fingers, then the
+     hand is killed, and this is indicated by raising zero fingers (i.e. a
+     closed fist).
+>> 6. A player may revive their own dead hand using a split, as long as
+     they abide by the rules for splitting.
+>> 7. However, players may not revive opponents' hands using an attack.
+     Therefore, a player with two dead hands can no longer play and is
+     eliminated from the game.
+>> 8. If any hand of any player reaches five or more fingers, then it is
+     considered a "dead hand".
+>> 9. A player wins once all opponents are eliminated i.e by each
+     having two dead hands at once.
 
-### Make sure to register yourself on  [Hacktoberfest](https://hacktoberfest.com/auth/)
-This project is a totally beginner friendly project. It deals with basics of HTML,CSS and Javascript.
+## Designing of the above game in Python follows these specifications:
 
-Celebrate [Hacktoberfest](https://hacktoberfest.com/) by getting involved in the open source community by completing some simple tasks in this project.
-
-This repository is open to all the members of github community. Any member can contribute to this project without being a collaborator.
-
-The link to the repo: [Repository link](https://github.com/E-Cell-VSSUT/Hacktober2k23Tech)
-
-## What is HacktoberFest?
-
-Hacktoberfest is a month-long celebration of open source software powered by [Digital Ocean](https://www.digitalocean.com/go/developer-brand?utm_campaign=apac_brand_kw_en_cpc&utm_adgroup=digitalocean_exact_exact&_keyword=digital%20ocean&_device=c&_adposition=&utm_content=conversion&utm_medium=cpc&utm_source=google&gclid=Cj0KCQjw1vSZBhDuARIsAKZlijQZkO8VvVcwSI8C06zAYsg-Y8uAaV_PCFPWGVUB58m-gqwy1Q5Q8rwaAjF4EALw_wcB),[Appwrite](https://appwrite.io/),[Docker](https://www.docker.com/). Hacktoberfest is open to everyone in our global community!
-
-## How to participtate!!
-
-You just have to make 4 contributions during this month long event to be eligible to participate.
-
-## Getting started
-
-* Fork this repository (Click the Fork button in the top right of this page, click your Profile Image).
-* Go to *Your repositories* then go to the forked repo you will see a code button, from their copy the repo link.
-* Clone your fork down to your local machine.
-
-```markdown
-git clone https://github.com/E-Cell-VSSUT/Hacktober2k23Tech.git
-```
-
-## How to contribute to this project!!
-
-You have to follow four simple steps once you have forked and cloned the repository.
-* Make a folder of your name.
-* Put all your files (HTML,CSS,JS) inside this folder.
-* After completing one task or resolving an issue give a PR.
-* When you are giving a PR make sure to mention the issue number that you have resolved in the commit message. 
-
-## Link issue number to your PR
-<img src="demo.jpeg" >
-
-All you have to do after this is wait for your PR to be reviewed by the maintainer and merged :v:. 
+>> 1. The Program starts with the Player1 & Player2 having one finger
+      raised on both hands.
+>> 2. Player 1 goes first - The Program asks for input from the user in the
+      form of :
+                - a. Move
+                - b. Combination of the moves
+            ( See player input section for more details )
+>> 3. After Player 1 has given the input, the program asks for input from
+      Player 2 in the similar way.
+>> 4. After each turn, the program displays the current status of hands for
+      both players.
+>> 5. The game ends when one of the players has dead hands. Display
+      which player won the game.
 
 
-# We allow multiple submissions for an issue , so it isn't a problem if somebody else has resolved the issue, you can give your submission for the same :v:
+## Input Specification:
+
+On any player’s turn, the program asks for:
+1. Move
+Either A (for Attack) or S(for Split)
+2. Combination
+In case of Attack - <Attack from> <Attack to>
+Examples
+1. L R # Attack from Left to Right of Opposition
+2. R R # Attack from Right to Right of Opposition
+In case of Split - <Hand to be Splitted> <Left hand after Split>
+<Right hand after Split>
+Examples
+1. L 1 1 # Split Left hand into 1(Left Hand) & 1(Right Hand)
+2. R 3 1 # Split Right hand into 3(Left Hand) & 1(Right Hand)
+
+## Output Specification:
+
+The first number displays the number on the left hand while the second
+number displays the number on the right hand
+(It is so as to avoid confusion during input)
+
+## Notes:
+
+- Program must be fully modular or class based. The Program must either
+be module based or classed based according to your preference.
+- Program must be submitted before deadline
+- Code should not be plagiarized
+
+## Example Run :
+Current Status :
+Player1 - 1 1
+Player2 - 1 1
+
+Enter move for Player 1 - A (Player Input)
+Enter the move combination - L R (Player Input) #Which hand to attack
+Current Status
+Player1 - 1 1
+Player2 - 1 2
+Enter move for Player 2 - A (Player input)
+Enter the move combination- L R (Player input) #Which hand to attack
+Current Status
+Player1 - 1 2
+Player2 - 1 2
+Enter move for Player 1 - A (Player input)
+Enter the move combination - L L (Player input) #Which hand to attack
+Current Status
+Player1 - 1 2
+Player2 - 2 2
+Enter move for Player 2 - A (Player input)
+Enter the move combination- R L (Player input) #Which hand to attack
+Current Status
+Player1 - 3 2
+Player2 - 2 2
+Enter move for Player 1 - A (Player input)
+Enter the move combination- L R (Player input) #Which hand to attack
+Current Status
+Player1 - 3 2
+Player2 - 2 0
+Enter move for Player 1 - S (Player input)
+Enter the move combination - L 1 1 (Player input) #How to split
+Current Status
+Player1 - 3 2
+Player2 - 1 1
+And the game goes on until one of the players wins …..
